@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: lederg-tg-web-proxy
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: WEB_PROXY_SECRET
+        sync: false
+      - key: CARRIER_MODE
+        value: websocket
+      - key: MTPROXY_MAX_CONNECTIONS
+        value: "512"
