@@ -35,7 +35,7 @@ FROM debian:bookworm-slim
 ENV PORT=10000
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      ca-certificates curl iproute2 libssl3 util-linux zlib1g \
+      bash ca-certificates curl iproute2 libssl3 passwd util-linux zlib1g \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --system --home /nonexistent --shell /usr/sbin/nologin mtproxy \
     && useradd --system --home /nonexistent --shell /usr/sbin/nologin tproxy \
