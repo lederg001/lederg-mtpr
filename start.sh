@@ -82,7 +82,7 @@ cat > /tmp/tproxy/config.json <<JSON
 }
 JSON
 chown -R tproxy:tproxy /tmp/tproxy
-chmod 0640 /tmp/tproxy/config.json /tmp/tproxy/profiles.json
+chmod 0600 /tmp/tproxy/config.json /tmp/tproxy/profiles.json
 /usr/local/bin/tproxy-server -config /tmp/tproxy/config.json -check
 
 LOCAL_IP="$(ip -4 route get 149.154.175.50 2>/dev/null | awk '{for (i=1;i<=NF;i++) if ($i=="src") {print $(i+1); exit}}' || true)"
