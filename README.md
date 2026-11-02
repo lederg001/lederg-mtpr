@@ -24,7 +24,7 @@ Generate a secret on your computer with Python:
 python -c "import secrets; print(secrets.token_hex(16))"
 ```
 
-Copy the output into `WEB_PROXY_SECRET` in Render. Keep it private; do not commit it to GitHub or paste it into public chats. `PUBLIC_HOSTNAME` is optional: the container automatically uses Render's `RENDER_EXTERNAL_HOSTNAME`. After attaching a custom domain, set `PUBLIC_HOSTNAME` to that exact lowercase hostname (no `https://`, port, or path), then redeploy.
+Copy the output into `WEB_PROXY_SECRET` in Render. Keep it private; do not commit it to GitHub or paste it into public chats. `PUBLIC_HOSTNAME` is optional: the container automatically uses Render's `RENDER_EXTERNAL_HOSTNAME`. After the first deploy, add the custom domain `ledergtg.cc.cd` in Render. Copy the exact DNS records Render displays into the DNS panel for `cc.cd`; do not guess an IP address. Then set `PUBLIC_HOSTNAME=ledergtg.cc.cd` in Render and redeploy.
 
 6. Click **Create Web Service**. Render builds the Docker image, runs upstream Go tests during the build, then starts MTProxy, the relay, and Caddy.
 
